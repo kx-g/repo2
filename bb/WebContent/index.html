@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript">
+	var app=angular.module("app",[]);
+	app.controller("Controller",function($scope,$http){
+		 $scope.date=function(){
+			 var timeStr = '-';
+			               var curDate = new Date();
+			               var curYear =curDate.getFullYear();  //获取完整的年份(4位,1970-????)
+			               var curMonth = curDate.getMonth()+1;  //获取当前月份(0-11,0代表1月)
+			               var curDay = curDate.getDate();       //获取当前日(1-31)
+			               var curWeekDay = curDate.getDay();    //获取当前星期X(0-6,0代表星期天)
+			               var curHour = curDate.getHours();      //获取当前小时数(0-23)
+			               var curMinute = curDate.getMinutes();   // 获取当前分钟数(0-59)
+			               var curSec =curDate.getSeconds();      //获取当前秒数(0-59)
+			               var Current= curYear+timeStr+curMonth+timeStr+curDay+' '+curHour+':'+curMinute+':'+curSec;
+			
+			 $scope.date=Current;
+		 }
+	})
+</script>
+
+</head>
+<body  ng-app="app" ng-controller="Controller" ng-init="date()"> 
+	<table border="1px" bgcolor="yellow" >
+			<tr>
+				<td>操作人</td>
+				<td>操作时间</td>
+				<td>目的是什么</td> 
+			</tr>
+			 
+			<tr>
+				<td>XX</td>
+				<td>{{date}}</td>
+				<td>XX</td>
+			</tr>
+			 
+			 
+		</table>  
+		
+		<input type="image" src="js/4630.png">
+		<input type="image" src="js/505211713.jpg">
+</body>
+</html>
